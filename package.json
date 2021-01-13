@@ -13,6 +13,29 @@
       "commit-msg": "validate-commit-msg"
     }
   },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.less": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
