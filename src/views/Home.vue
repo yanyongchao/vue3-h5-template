@@ -16,3 +16,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.home {
+  color: red;
+  font-size: 20px;
+}
+</style>
