@@ -1,8 +1,7 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/images/logo.png">
-    <div>page1</div>
-    <button @click="$router.push({ name: 'About' })">去page2</button>
+  <div class="page3">
+    page3
+    <button @click="$router.go(-2)">返回page1</button>
   </div>
 </template>
 
@@ -10,12 +9,12 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Page3'
 })
 </script>
 
 <style lang="scss" scoped>
-.home {
+.page3 {
   color: red;
   font-size: 20px;
 }

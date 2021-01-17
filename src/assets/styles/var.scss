@@ -1,0 +1,50 @@
+/* 标准色 */
+$theme: #fc562c;
+$white: #fff;
+$black: #000;
+$grey-1: #333;
+$grey-2: #666;
+$grey-3: #999;
+$grey-4: #ccc;
+
+/* 辅助色 */
+$orange: #ff8200;
+$brown: #aa4200;
+$darker: #272727;
+$green: #5da700;
+$blueGrayLight: #8ca4dc;
+$blueGray: #7288ba;
+$blueDark: #4b597c;
+$lightWhite: #fff1e3;
+
+/* 主题色 */
+$primary: #fc562c;
+$primary-linear: linear-gradient(180deg,rgba(240,98,70,1) 0%,rgba(255,69,43,1) 100%);
+
+/* 错误提示 */
+$error: #f3352f;
+
+/* 成功提示 */
+$success: #5da700;
+
+/* 输入框提示文字 */
+$placeholder: $grey-3;
+
+/* 边框色 */
+$border-color: #e5e5e5;
+
+/* 浅灰背景色 */
+$bg-color: #f9f9f9;
+$bg-white: #fff;
+
+/* 文字颜色 */
+$title-color: $grey-1;
+$hint-color: $grey-2;
+$text-color: $grey-3;
+$label-color: $grey-3;
+
+/* 圆角 */
+$radius-xs: 2px;
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-circle: 50%;

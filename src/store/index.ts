@@ -1,12 +1,11 @@
-import { createStore } from 'vuex'
+import { Store, createStore } from 'vuex'
+import { IStore } from '@/types/store'
+import router from './modules/router'
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store: Store<IStore> = createStore({
   modules: {
+    router
   }
 })
+
+export default store
