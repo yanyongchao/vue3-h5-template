@@ -66,6 +66,7 @@
     "stylelint-webpack-plugin": "^2.1.1",
     "typescript": "~3.9.3",
     "validate-commit-msg": "^2.14.0",
+    "vconsole": "^3.4.0",
     "vue-cli-plugin-fs-stylelint": "^0.1.2"
   }
 }

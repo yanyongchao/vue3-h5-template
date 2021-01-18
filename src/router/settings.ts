@@ -1,15 +1,15 @@
 import store from '@/store'
 import { RouterType } from '@/router'
 
-const PATH_KEY = 'PATH_KEY'
-let isFirst = true
+const PATH_KEY = 'pathKey'
 
 const routerEach = (router: RouterType) => {
   router.beforeEach((to, from, next) => {
     const query = { ...to.query }
     if (query[PATH_KEY]) {
-      if (isFirst) {
-        isFirst = false
+      // 首次进入
+      if (!from.name) {
+        store.commit('UPDATE_NAVIGATIONS', { path: to.fullPath })
         return next()
       }
       const toIndex = store.state.router.navigations.findIndex(path => path === to.fullPath)
