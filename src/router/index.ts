@@ -6,14 +6,14 @@ const routes: Array<RouteRecordRaw> = [
   ...goodsRoutes
 ]
 
-const router = createRouter({
+type RouterType = ReturnType<typeof createRouter>
+
+const router: RouterType = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
 routerEach(router)
-
-type RouterType = typeof router
 
 export {
   RouterType

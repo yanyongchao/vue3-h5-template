@@ -1,27 +1,29 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition :name="transition">
+    <transition :name="transitionName">
       <component class="child-view" :is="Component" />
     </transition>
   </router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapState } from 'vuex'
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
+import { IStore } from '@/types/store'
 
 export default defineComponent({
   name: 'App',
-  computed: {
-    ...mapState({
-      routerDirection: (state: any) => state.router.routerDirection
-    }),
-    transition () {
-      const routerDirection: any = this.routerDirection
-      if (!routerDirection) {
+  setup () {
+    const store = useStore<IStore>()
+    const routerDirection = computed(() => store.state.router.routerDirection)
+    const transitionName = computed(() => {
+      if (!routerDirection.value) {
         return 'slide-normal'
       }
-      return `slide-${routerDirection}`
+      return `slide-${routerDirection.value}`
+    })
+    return {
+      transitionName
     }
   }
 })

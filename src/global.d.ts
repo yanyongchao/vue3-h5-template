@@ -14,6 +14,9 @@ declare module 'axios' {
 };
 
 declare global {
+  interface AnyObject {
+    [propName: string]: any;
+  }
   interface Window {
     $store: any;
   }
