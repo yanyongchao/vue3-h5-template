@@ -1214,7 +1214,7 @@
 
 "@vant/popperjs@^1.0.2":
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@vant/popperjs/download/@vant/popperjs-1.0.2.tgz#522d71656235125a3ae08e9c701a3bae6fd88d7b"
+  resolved "https://registry.npm.taobao.org/@vant/popperjs/download/@vant/popperjs-1.0.2.tgz?cache=0&sync_timestamp=1607062513238&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vant%2Fpopperjs%2Fdownload%2F%40vant%2Fpopperjs-1.0.2.tgz#522d71656235125a3ae08e9c701a3bae6fd88d7b"
   integrity sha1-Ui1xZWI1Elo64I6ccBo7rm/YjXs=
   dependencies:
     "@popperjs/core" "^2.5.4"
