@@ -12,7 +12,7 @@
     "lint": "vue-cli-service lint"
   },
   "lint-staged": {
-    "*.js": [
+    "!(*vendor.dll).js": [
       "vue-cli-service lint"
     ],
     "*.vue": [
