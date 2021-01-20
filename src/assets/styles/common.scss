@@ -23,16 +23,16 @@
   color: $error;
 }
 .title--color {
-  color: $dark;
+  color: $title-color;
 }
 .hint--color {
-  color: $darkGray;
+  color: $hint-color;
 }
 .text--color {
-  color: $gray;
+  color: $text-color;
 }
 .label--color {
-  color: $lightGray;
+  color: $label-color;
 }
 .green--color {
   color: $green;
@@ -167,6 +167,9 @@
 /* ==================
       margin
  ==================== */
+.m-0 {
+  margin: 0;
+}
 .m-5 {
   margin: 5px;
 }
@@ -186,6 +189,9 @@
   margin: 30px;
 }
 
+.m-t-0 {
+  margin-top: 0;
+}
 .m-t-5 {
   margin-top: 5px;
 }
@@ -205,6 +211,9 @@
   margin-top: 30px;
 }
 
+.m-r-0 {
+  margin-top: 0;
+}
 .m-r-5 {
   margin-right: 5px;
 }
@@ -224,6 +233,9 @@
   margin-right: 30px;
 }
 
+.m-b-0 {
+  margin-top: 0;
+}
 .m-b-5 {
   margin-bottom: 5px;
 }
@@ -243,6 +255,9 @@
   margin-bottom: 30px;
 }
 
+.m-l-0 {
+  margin-left: 0;
+}
 .m-l-5 {
   margin-left: 5px;
 }
@@ -265,6 +280,9 @@
 /* ==================
       padding
  ==================== */
+.p-0 {
+  padding: 0;
+}
 .p-5 {
   padding: 5px;
 }
@@ -284,6 +302,9 @@
   padding: 30px;
 }
 
+.p-t-0 {
+  padding-top: 0;
+}
 .p-t-5 {
   padding-top: 5px;
 }
@@ -303,6 +324,9 @@
   padding-top: 30px;
 }
 
+.p-r-0 {
+  padding-right: 0;
+}
 .p-r-5 {
   padding-right: 5px;
 }
@@ -322,6 +346,9 @@
   padding-right: 30px;
 }
 
+.p-b-0 {
+  padding-bottom: 0;
+}
 .p-b-5 {
   padding-bottom: 5px;
 }
@@ -341,6 +368,9 @@
   padding-bottom: 30px;
 }
 
+.p-l-0 {
+  padding-left: 0;
+}
 .p-l-5 {
   padding-left: 5px;
 }

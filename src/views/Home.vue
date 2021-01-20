@@ -1,16 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/images/logo.png">
-    <div>page1</div>
     <button @click="$router.push({ name: 'About' })">去page2</button>
+    <p>{{isShow ? 'ss' : 'mm'}}</p>
+    <button @click="handleToggle">toggle</button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useToggle } from '@/hooks/useToogle'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Home',
+  setup () {
+    const [isShow, handleToggle] = useToggle()
+    return {
+      isShow,
+      handleToggle
+    }
+  }
 })
 </script>
 

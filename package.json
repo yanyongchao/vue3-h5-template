@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode production",
+    "build:test": "vue-cli-service build --mode test",
+    "build:beta": "vue-cli-service build --mode beta",
+    "build:dll": "webpack --config webpack.dll.conf.js",
+    "report": "vue-cli-service build --report --mode production",
     "lint": "vue-cli-service lint"
   },
   "lint-staged": {
@@ -25,6 +29,10 @@
       "stylelint --fix"
     ]
   },
+  "sideEffects": [
+    "*.css",
+    "*.vue"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -37,6 +45,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "md5": "^2.3.0",
+    "vant": "^3.0.4",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -55,6 +64,8 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "5.0.1",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -68,8 +79,11 @@
     "sass-loader": "^8.0.2",
     "stylelint-webpack-plugin": "^2.1.1",
     "typescript": "~3.9.3",
+    "useless-files-webpack-plugin": "^1.0.1",
     "validate-commit-msg": "^2.14.0",
     "vconsole": "^3.4.0",
-    "vue-cli-plugin-fs-stylelint": "^0.1.2"
+    "vconsole-webpack-plugin": "^1.5.2",
+    "vue-cli-plugin-fs-stylelint": "^0.1.2",
+    "webpack-cli": "^4.4.0"
   }
 }
