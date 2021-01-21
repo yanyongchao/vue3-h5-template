@@ -1,7 +1,7 @@
 import Schema from 'async-validator'
 import { isString, isArray } from 'lodash'
 
-import { ValidateRules, ValidateError } from '@/types/validate'
+import { ValidateRules, ValidateError } from '@/typings/validate'
 
 class ValidatorUtils {
   private data: AnyObject;
