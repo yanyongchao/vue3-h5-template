@@ -6,10 +6,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 
 export default defineComponent({
-  name: 'Page3'
+  name: 'Home',
+  setup () {
+    const b = inject('pageStack')
+
+    console.log('xx', (b as any).getStack())
+    return {
+    }
+  }
 })
 </script>
 

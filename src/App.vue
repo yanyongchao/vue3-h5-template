@@ -1,15 +1,18 @@
 <template>
-  <router-view v-slot="{ Component }">
+  <!-- <router-view v-slot="{ Component }">
     <transition :name="transitionName">
-      <component class="child-view" :is="Component" />
+      <vue-page-stack>
+        <component class="child-view" :is="Component" />
+      </vue-page-stack>
     </transition>
-  </router-view>
+  </router-view> -->
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
-import { IStore } from '@/types/store'
+import { IStore } from '@/typings/store'
 
 export default defineComponent({
   name: 'App',

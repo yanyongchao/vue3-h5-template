@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, Router, createWebHistory, RouteRecordRaw } from 'vue-router'
 import routerEach from './settings'
 import goodsRoutes from './modules/goods'
 
@@ -6,9 +6,7 @@ const routes: Array<RouteRecordRaw> = [
   ...goodsRoutes
 ]
 
-type RouterType = ReturnType<typeof createRouter>
-
-const router: RouterType = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior (to, from, savedPosition) {
@@ -19,11 +17,5 @@ const router: RouterType = createRouter({
     }
   }
 })
-
-routerEach(router)
-
-export {
-  RouterType
-}
 
 export default router
