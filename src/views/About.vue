@@ -4,6 +4,8 @@
     <div>page2</div>
     <button @click="$router.push({ name: 'Page3' })">去page3</button>
     <button @click="$router.go(-1)">返回page1</button>
+    <button @click="$router.push({ name: 'AboutChild' })">child</button>
+    <router-view></router-view>
   </div>
 </template>
 

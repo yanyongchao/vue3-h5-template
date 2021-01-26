@@ -1,30 +1,42 @@
 <template>
-  <!-- <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }">
     <transition :name="transitionName">
-      <vue-page-stack>
-        <component class="child-view" :is="Component" />
-      </vue-page-stack>
+      <component class="child-view" :is="Component" />
     </transition>
-  </router-view> -->
-  <router-view></router-view>
+  </router-view>
+  <!-- <router-view></router-view> -->
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, watch, ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
 import { IStore } from '@/typings/store'
 
 export default defineComponent({
   name: 'App',
   setup () {
-    const store = useStore<IStore>()
-    const routerDirection = computed(() => store.state.router.routerDirection)
-    const transitionName = computed(() => {
-      if (!routerDirection.value) {
-        return 'slide-normal'
+    console.log('xxx')
+    // const store = useStore<IStore>()
+    // const routerDirection = computed(() => store.state.router.routerDirection)
+    // const transitionName = computed(() => {
+    //   if (!routerDirection.value) {
+    //     return 'slide-normal'
+    //   }
+    //   return `slide-${routerDirection.value}`
+    // })
+    const route = useRoute()
+    const transitionName = ref('slide-normal')
+    watch(
+      route,
+      (newRoute, oldRoute) => {
+        if (!oldRoute) return
+        transitionName.value = 'slide-' + (newRoute.params.routerDir as string)
+      },
+      {
+        immediate: true
       }
-      return `slide-${routerDirection.value}`
-    })
+    )
     return {
       transitionName
     }

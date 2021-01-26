@@ -24,6 +24,12 @@ const routerMixin = (router: Router) => {
         query: to.query
       })
     } else {
+      const index = stack.findIndex(item => item[keyName] === query[keyName])
+      if (index === -1) {
+        to.params.routerDir = PageStackConfig.forwardName
+      } else {
+        to.params.routerDir = PageStackConfig.backName
+      }
       next()
     }
   })
