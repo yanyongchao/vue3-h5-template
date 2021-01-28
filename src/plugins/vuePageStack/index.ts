@@ -1,6 +1,7 @@
 import { App } from 'vue'
 import { Router } from 'vue-router'
 import { routerMixin, getStack, StackRecord } from './pageStack'
+import { PAGE_STACK_CONFIG } from './config'
 
 interface PageStack {
   getStack: () => Array<StackRecord>;
@@ -21,7 +22,8 @@ const VuePageStackPlugin = {
 }
 
 export {
-  PageStack
+  PageStack,
+  PAGE_STACK_CONFIG
 }
 
 export default VuePageStackPlugin

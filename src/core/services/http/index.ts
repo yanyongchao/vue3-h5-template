@@ -6,6 +6,7 @@ import Axios, {
   Canceler
 } from 'axios'
 import md5 from 'md5'
+import LocalConfig from '@/config.json'
 
 type Method = 'get' | 'post' | 'put' | 'delete'
 
@@ -15,18 +16,11 @@ interface ReqOptions {
   specialError?: boolean;
 }
 
-// 覆盖AxiosRequestConfig，将url,method改成必填
+// 覆盖AxiosRequestConfig，将method改成必填
 interface RequestConfig extends AxiosRequestConfig {
-  url: string;
   method: Method;
 }
 
-interface RequestCancelMap {
-  [property: string]: any;
-}
-
-const BASE_URL = '/api'
-const TIME_OUT = 10000
 const REPEAT_REQUEST = 'Repeat request'
 const CancelToken = Axios.CancelToken
 
@@ -34,7 +28,7 @@ class HttpService {
   // axios请求实例
   public static instance: HttpService
   public axios: AxiosInstance
-  public requestCancelMap: RequestCancelMap
+  public requestCancelMap: AnyObject
 
   // 获取HttpService的一个实例，这里用了单例模式
   public static getInstance (): HttpService {
@@ -46,8 +40,8 @@ class HttpService {
 
   constructor () {
     this.axios = Axios.create({
-      baseURL: BASE_URL,
-      timeout: TIME_OUT
+      baseURL: LocalConfig.AxiosBaseUrl,
+      timeout: LocalConfig.AxiosTimeout
     })
     // 用来取消请求
     this.requestCancelMap = {}
@@ -57,20 +51,12 @@ class HttpService {
     this.responseInterceptor()
   }
 
-  request (reqParams: ReqOptions): Promise<any> {
-    let options: RequestConfig = {
-      url: '/gateway', // 请求url
-      data: '', // 请求参数
-      specialError: false, // 特殊的错误处理，这边指报错不使用统一提示
-      method: 'post' // 请求类型，默认post
-    }
-    options = { ...options, ...reqParams }
-    const reqData = this.handleParams(options)
-
+  request (reqOptions: ReqOptions): Promise<any> {
+    // const reqData = this.handleParams(reqOptions)
     return new Promise((resolve, reject) => {
-      this.axios[options.method](
-        options.url,
-        reqData,
+      this.axios.post(
+        reqOptions.url,
+        reqOptions.data,
         {
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -81,9 +67,9 @@ class HttpService {
         if (response.success) {
           return resolve(response.data)
         }
-        if (options.specialError) {
-          return reject(response)
-        }
+        // if (reqOptions.specialError) {
+        //   return reject(response)
+        // }
         // Toast(response.message)
       }).catch((error: AxiosError) => {
         reject(error)

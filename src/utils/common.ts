@@ -1,5 +1,5 @@
 /**
- * @func 生成uuid算法,规则八位随机字符，加下划线连接时间戳
+ * @func 获取随机数
  * @author yyc
  */
 export const getRandom = () => {

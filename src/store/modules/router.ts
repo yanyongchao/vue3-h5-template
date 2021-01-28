@@ -3,35 +3,35 @@ const state = {
   navigations: [] as string[]
 }
 
-type RouterStateType = typeof state
-type RouterPayloadType = {
+type RouterState = typeof state
+type RouterPayload = {
   routerDirection: string;
   path: string;
   index: number;
 }
 
 const mutations = {
-  UPDATE_ROUTER_DIRECTION (state: RouterStateType, payload: Pick<RouterPayloadType, 'routerDirection'>) {
+  UPDATE_ROUTER_DIRECTION (state: RouterState, payload: Pick<RouterPayload, 'routerDirection'>) {
     state.routerDirection = payload.routerDirection
   },
-  UPDATE_NAVIGATIONS (state: RouterStateType, payload: Pick<RouterPayloadType, 'path'>) {
+  UPDATE_NAVIGATIONS (state: RouterState, payload: Pick<RouterPayload, 'path'>) {
     state.navigations.push(payload.path)
   },
-  DELETE_NAVIGATION (state: RouterStateType, payload: Pick<RouterPayloadType, 'index'>) {
+  DELETE_NAVIGATION (state: RouterState, payload: Pick<RouterPayload, 'index'>) {
     const index = payload.index
     state.navigations = state.navigations.slice(0, index + 1)
   },
-  CLEAR_NAVIGATIONS (state: RouterStateType) {
+  CLEAR_NAVIGATIONS (state: RouterState) {
     state.navigations = []
   }
 }
 
 const getters = {
-  navigations: (state: RouterStateType) => state.navigations
+  navigations: (state: RouterState) => state.navigations
 }
 
 export {
-  RouterStateType
+  RouterState
 }
 
 export default {

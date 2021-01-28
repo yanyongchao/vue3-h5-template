@@ -1,5 +1,4 @@
 import { createRouter, Router, createWebHistory, RouteRecordRaw } from 'vue-router'
-import routerEach from './settings'
 import goodsRoutes from './modules/goods'
 
 const routes: Array<RouteRecordRaw> = [

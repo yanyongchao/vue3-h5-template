@@ -13,6 +13,11 @@ declare module 'axios' {
   }
 };
 
+declare module '*.json' {
+  const value: any
+  export default value
+};
+
 declare global {
   interface AnyObject {
     [propName: string]: any;
@@ -20,4 +25,4 @@ declare global {
   interface Window {
     $store: any;
   }
-}
+};

@@ -1,15 +1,17 @@
 import { Router } from 'vue-router'
-import { PageStackConfig } from './config'
+import { PAGE_STACK_CONFIG } from './config'
 import { getRandom, hasKey } from '@/utils/common'
+import { getSessionStorage, setSessionStorage } from '@/utils/storage'
+import { PAGE_STACK } from '@/constants/storage'
 
-const keyName = PageStackConfig.keyName
+const keyName = PAGE_STACK_CONFIG.keyName
 
 type StackRecord = {
   name: string;
   [keyName]: string;
 }
 
-let stack: Array<StackRecord> = []
+let stack: Array<StackRecord> = getSessionStorage(PAGE_STACK) || []
 
 const getStack = () => stack
 
@@ -26,9 +28,9 @@ const routerMixin = (router: Router) => {
     } else {
       const index = stack.findIndex(item => item[keyName] === query[keyName])
       if (index === -1) {
-        to.params.routerDir = PageStackConfig.forwardName
+        to.params.routerDir = PAGE_STACK_CONFIG.forwardName
       } else {
-        to.params.routerDir = PageStackConfig.backName
+        to.params.routerDir = PAGE_STACK_CONFIG.backName
       }
       next()
     }
@@ -44,6 +46,7 @@ const routerMixin = (router: Router) => {
         [keyName]: key
       })
     }
+    setSessionStorage(PAGE_STACK, stack)
   })
 }
 

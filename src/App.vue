@@ -8,10 +8,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch, ref } from 'vue'
+import { defineComponent, computed, watch, ref, inject } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import { IStore } from '@/typings/store'
+import { PageStack, PAGE_STACK_CONFIG } from '@/plugins/vuePageStack'
 
 export default defineComponent({
   name: 'App',
@@ -27,16 +28,15 @@ export default defineComponent({
     // })
     const route = useRoute()
     const transitionName = ref('slide-normal')
-    watch(
-      route,
-      (newRoute, oldRoute) => {
-        if (!oldRoute) return
-        transitionName.value = 'slide-' + (newRoute.params.routerDir as string)
-      },
-      {
-        immediate: true
+    const pageStack = inject('pageStack') as PageStack
+    watch(route, (newRoute) => {
+      const routerDir = newRoute.params.routerDir as string
+      if (pageStack.getStack().length <= 1 && routerDir === PAGE_STACK_CONFIG.forwardName) {
+        transitionName.value = 'slide-normal'
+        return
       }
-    )
+      transitionName.value = 'slide-' + routerDir
+    })
     return {
       transitionName
     }

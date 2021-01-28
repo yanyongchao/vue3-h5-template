@@ -1,7 +1,7 @@
-import { RouterStateType } from '@/store/modules/router'
+import { RouterState } from '@/store/modules/router'
 
 type ModuleType = {
-  router: RouterStateType;
+  router: RouterState;
 }
 
 export type IStore = ModuleType
