@@ -6,9 +6,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
+import { defineComponent, inject, onMounted } from 'vue'
 import { useToggle } from '@/hooks/useToogle'
 import { useRoute } from 'vue-router'
+import quoteInteractor from '@/core/interactors/quote'
 
 export default defineComponent({
   name: 'Home',
@@ -16,6 +17,13 @@ export default defineComponent({
     const [isShow, handleToggle] = useToggle()
     const route = useRoute()
     const routerDir = route.params.routerDir
+    onMounted(async () => {
+      try {
+        const list = await quoteInteractor.getQuoteList()
+      } catch (err) {
+        console.log('lll', err)
+      }
+    })
     return {
       isShow,
       routerDir,

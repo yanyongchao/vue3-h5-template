@@ -64,14 +64,17 @@ class HttpService {
           }
         }
       ).then((response: AxiosResponse) => {
+        console.log('response====>', response)
         if (response.success) {
-          return resolve(response.data)
+          // eslint-disable-next-line prefer-promise-reject-errors
+          return reject('lllll')
         }
         // if (reqOptions.specialError) {
         //   return reject(response)
         // }
         // Toast(response.message)
       }).catch((error: AxiosError) => {
+        console.log('error1')
         reject(error)
       })
     })
@@ -105,6 +108,7 @@ class HttpService {
   responseInterceptor () {
     this.axios.interceptors.response.use(
       config => {
+        console.log('error3')
         // 这边根据自己接口规则来做判断，判断是否是登陆失效；失效则跳转到登陆页面
         if (config.data.code === -104) {
           // 如果登陆超时等，把本地的存储信息进行删除
@@ -112,6 +116,8 @@ class HttpService {
         return config.data
       },
       error => {
+        console.log('error2')
+
         if (error.message !== REPEAT_REQUEST) {
           // toast提示
         }

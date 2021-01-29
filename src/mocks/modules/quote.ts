@@ -17,8 +17,7 @@ export default function init (mock: MockAdapter) {
         data: {
           [`list|${total}`]: [QUOTE_TPL]
         },
-        errmsg: '',
-        errno: 0
+        success: true
       })
     ]
   })
