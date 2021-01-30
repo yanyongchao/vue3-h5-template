@@ -1,21 +1,21 @@
-import { QuoteService, IQuoteService } from '@/core/requests/quote'
+import { GoodsService } from '@/core/requests/quote'
 
-class QuoteInteractor {
-  private static _instance: QuoteInteractor
+class GoodsInteractor {
+  private static _instance: GoodsInteractor
 
-  public static getInstance (): QuoteInteractor {
+  public static getInstance (): GoodsInteractor {
     if (!this._instance) {
-      this._instance = new QuoteInteractor(new QuoteService())
+      this._instance = new GoodsInteractor(new GoodsService())
     }
     return this._instance
   }
 
   // eslint-disable-next-line no-useless-constructor
-  constructor (private quoteService: IQuoteService) {}
+  constructor (private quoteService: GoodsService) {}
 
   async getQuoteList () {
     return await this.quoteService.getQuoteList()
   }
 }
 
-export default QuoteInteractor.getInstance()
+export default GoodsInteractor.getInstance()

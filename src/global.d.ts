@@ -23,6 +23,6 @@ declare global {
     [propName: string]: any;
   }
   interface Window {
-    $store: any;
+    $bridge: any;
   }
 };

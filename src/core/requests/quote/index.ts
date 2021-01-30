@@ -1,15 +1,11 @@
-import { HttpService } from '@/core/services'
-import { IQuote } from '@/typings/quote'
+import { http } from '@/core/services'
+import { IGoods } from '@/typings/goods'
 
-export interface IQuoteService {
-  getQuoteList(): Promise<IQuote[] | any>;
-}
-
-export class QuoteService implements IQuoteService {
-  public async getQuoteList (): Promise<IQuote[] | any> {
+export class GoodsService {
+  public async getQuoteList (): Promise<IGoods[]> {
     // eslint-disable-next-line no-useless-catch
-    const { list } = await HttpService.request({
-      url: '/quote/getList',
+    const { list } = await http.request({
+      url: '/goods',
       data: {}
     })
     return list

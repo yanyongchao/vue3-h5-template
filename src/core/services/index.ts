@@ -1,5 +1,5 @@
-import HttpService from './http'
+import http from './http'
 
 export {
-  HttpService
+  http
 }

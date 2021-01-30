@@ -7,7 +7,7 @@ export const getRandom = () => {
 }
 
 /**
- * @func
+ * @func 判断是否存在某个属性
  * @param {object} query 当前对象
  * @param {string} keyName 属性名
  * @author yyc

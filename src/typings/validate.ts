@@ -1,8 +1,8 @@
-export interface ValidateRules {
+export interface IValidateRules {
   [propName: string]: AnyObject[];
 }
 
-export interface ValidateError {
+export interface IValidateError {
   field: string;
   message: string;
 }

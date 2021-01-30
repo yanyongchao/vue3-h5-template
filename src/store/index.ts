@@ -8,6 +8,4 @@ const store: Store<IStore> = createStore({
   }
 })
 
-window.$store = store
-
 export default store

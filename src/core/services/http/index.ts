@@ -64,17 +64,15 @@ class HttpService {
           }
         }
       ).then((response: AxiosResponse) => {
-        console.log('response====>', response)
         if (response.success) {
           // eslint-disable-next-line prefer-promise-reject-errors
-          return reject('lllll')
+          return resolve(response.data)
         }
         // if (reqOptions.specialError) {
         //   return reject(response)
         // }
         // Toast(response.message)
       }).catch((error: AxiosError) => {
-        console.log('error1')
         reject(error)
       })
     })
@@ -107,13 +105,13 @@ class HttpService {
 
   responseInterceptor () {
     this.axios.interceptors.response.use(
-      config => {
-        console.log('error3')
+      response => {
+        this.responseLog(response)
         // 这边根据自己接口规则来做判断，判断是否是登陆失效；失效则跳转到登陆页面
-        if (config.data.code === -104) {
+        if (response.data.code === -104) {
           // 如果登陆超时等，把本地的存储信息进行删除
         }
-        return config.data
+        return response.data
       },
       error => {
         console.log('error2')
@@ -143,6 +141,30 @@ class HttpService {
     params.sign = md5(`appid=XXXX&content=${encodeURIComponent(params.content)}&method=${options.url}&version=1.0`)
 
     return params
+  }
+
+  /**
+   * @func 打印请求日志
+   * @param {object} response 响应对象
+   * @author yyc
+   */
+  responseLog (response: AxiosResponse) {
+    if (process.env.NODE_ENV === 'development') {
+      const randomColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(
+        Math.random() * 255
+      )},${Math.round(Math.random() * 255)})`
+      console.log(
+        '%c┍------------------------------------------------------------------┑',
+        `color:${randomColor};`
+      )
+      console.log('| 请求地址：', response.config.url)
+      console.log('| 请求参数：', response.config.data ? JSON.parse(response.config.data) : {})
+      console.log('| 返回数据：', response.data)
+      console.log(
+        '%c┕------------------------------------------------------------------┙',
+        `color:${randomColor};`
+      )
+    }
   }
 }
 

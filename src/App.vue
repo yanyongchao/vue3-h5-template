@@ -4,7 +4,6 @@
       <component class="child-view" :is="Component" />
     </transition>
   </router-view>
-  <!-- <router-view></router-view> -->
 </template>
 
 <script lang="ts">

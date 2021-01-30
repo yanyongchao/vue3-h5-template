@@ -12,10 +12,10 @@ $orange: #ff8200;
 $brown: #aa4200;
 $darker: #272727;
 $green: #5da700;
-$blueGrayLight: #8ca4dc;
-$blueGray: #7288ba;
-$blueDark: #4b597c;
-$lightWhite: #fff1e3;
+$blue-gray-light: #8ca4dc;
+$blue-gray: #7288ba;
+$blue-dark: #4b597c;
+$light-white: #fff1e3;
 
 /* 主题色 */
 $primary: #fc562c;
@@ -44,7 +44,7 @@ $text-color: $grey-3;
 $label-color: $grey-3;
 
 /* 圆角 */
-$radius-xs: 2px;
-$radius-sm: 4px;
-$radius-md: 6px;
+$radius-xs: 4px;
+$radius-sm: 8px;
+$radius-md: 12px;
 $radius-circle: 50%;

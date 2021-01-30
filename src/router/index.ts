@@ -7,14 +7,7 @@ const routes: Array<RouteRecordRaw> = [
 
 const router: Router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
+  routes
 })
 
 export default router
