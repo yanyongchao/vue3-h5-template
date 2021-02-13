@@ -5,39 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode production",
-    "build:test": "vue-cli-service build --mode test",
+    "lint": "vue-cli-service lint",
     "build:beta": "vue-cli-service build --mode beta",
     "build:dll": "webpack --config webpack.dll.conf.js",
-    "report": "vue-cli-service build --report --mode production",
-    "lint": "vue-cli-service lint"
-  },
-  "lint-staged": {
-    "!(*vendor.dll).js": [
-      "vue-cli-service lint"
-    ],
-    "*.vue": [
-      "vue-cli-service lint",
-      "stylelint --fix"
-    ],
-    "*.css": [
-      "stylelint --fix"
-    ],
-    "*.less": [
-      "stylelint --fix"
-    ],
-    "*.scss": [
-      "stylelint --fix"
-    ]
-  },
-  "sideEffects": [
-    "*.css",
-    "*.vue"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "validate-commit-msg"
-    }
+    "build:test": "vue-cli-service build --mode test",
+    "cz": "npm run log && git add . && git cz",
+    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0",
+    "report": "vue-cli-service build --report --mode production"
   },
   "dependencies": {
     "async-validator": "^3.5.1",
@@ -45,6 +19,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "md5": "^2.3.0",
+    "right-pad": "^1.0.1",
     "vant": "^3.0.4",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -67,7 +42,10 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "axios-mock-adapter": "^1.19.0",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
+    "commitlint": "^8.2.0",
     "compression-webpack-plugin": "5.0.1",
+    "conventional-changelog-cli": "^2.0.28",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -86,7 +64,40 @@
     "validate-commit-msg": "^2.14.0",
     "vconsole": "^3.4.0",
     "vconsole-webpack-plugin": "^1.5.2",
+    "vue-cli-plugin-commitlint": "~1.0.12",
     "vue-cli-plugin-fs-stylelint": "^0.1.2",
     "webpack-cli": "^4.4.0"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "!(*vendor.dll).js": [
+      "vue-cli-service lint"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "stylelint --fix"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.less": [
+      "stylelint --fix"
+    ],
+    "*.scss": [
+      "stylelint --fix"
+    ]
+  },
+  "sideEffects": [
+    "*.css",
+    "*.vue"
+  ]
 }
