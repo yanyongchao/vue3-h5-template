@@ -15,26 +15,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, toRefs } from 'vue'
-import GoodsInteractor from '@/core/interactors/quote'
-import { IGoods } from '@/typings/goods'
+import { defineComponent } from 'vue'
+import GoodsInteractor from '@/core/interactors/goods'
+import { useApi } from '@/hooks/useApi'
 
 export default defineComponent({
   name: 'Goods',
   setup () {
-    const data = reactive({
-      list: [] as Array<IGoods>
-    })
-    onMounted(async () => {
-      try {
-        const list: Array<IGoods> = await GoodsInteractor.getQuoteList()
-        data.list = list
-      } catch (err) {
-        console.log(err)
+    const { data: list } = useApi(
+      GoodsInteractor.getGoodsList,
+      {
+        params: []
       }
-    })
+    )
+
     return {
-      ...toRefs(data)
+      list
     }
   }
 })
