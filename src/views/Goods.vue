@@ -25,7 +25,7 @@ export default defineComponent({
     const { data: list } = useApi(
       GoodsInteractor.getGoodsList,
       {
-        params: []
+        initialData: []
       }
     )
 

@@ -16,7 +16,6 @@ import { PageStack, PAGE_STACK_CONFIG } from '@/plugins/vuePageStack'
 export default defineComponent({
   name: 'App',
   setup () {
-    console.log('xxx')
     // const store = useStore<IStore>()
     // const routerDirection = computed(() => store.state.router.routerDirection)
     // const transitionName = computed(() => {

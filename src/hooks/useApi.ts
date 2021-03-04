@@ -6,12 +6,19 @@ export interface RequestOptions<R = any, P extends any[] = any[]>{
   initialData: R;
 }
 
+const defaultOptions = {
+  manual: false,
+  params: [] as any[],
+  initialData: undefined
+}
+
 export function useApi<R = any, P extends any[] = any[]> (
   service: (...args: P) => Promise<R>,
   options: Partial<RequestOptions> = {}
 ) {
+  const finalOptions = { ...defaultOptions, ...options }
   const loading = ref<boolean>(false)
-  const data = ref(options.initialData) as Ref<R>
+  const data = ref(finalOptions.initialData) as Ref<R | undefined>
   const error = ref<Error | null>(null)
 
   const run = async (...args: P) => {
@@ -29,8 +36,8 @@ export function useApi<R = any, P extends any[] = any[]> (
     }
   }
 
-  if (!options.manual) {
-    run(...options.params as P)
+  if (!finalOptions.manual) {
+    run(...finalOptions.params as P)
   }
 
   return {

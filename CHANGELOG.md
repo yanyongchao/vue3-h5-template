@@ -1,4 +1,4 @@
-# 0.1.0 (2021-03-03)
+# 0.1.0 (2021-03-04)
 
 ### 🌟 新功能
 范围|描述|commitId
@@ -14,6 +14,7 @@
  - | ddd模型 | [2016228](https://github.com/yanyongchao/vue3-h5-template/commit/2016228)
  - | first commit | [6db44f4](https://github.com/yanyongchao/vue3-h5-template/commit/6db44f4)
  - | layout | [20f9019](https://github.com/yanyongchao/vue3-h5-template/commit/20f9019)
+ - | useApi | [577b7aa](https://github.com/yanyongchao/vue3-h5-template/commit/577b7aa)
  - | vuepagestack | [fa7b0f7](https://github.com/yanyongchao/vue3-h5-template/commit/fa7b0f7)
 
 
