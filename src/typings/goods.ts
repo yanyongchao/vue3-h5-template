@@ -3,8 +3,8 @@ export interface IGoods {
   goodsName: string;
   goodsDesc: string;
   createTime: string;
-  price: number;
-  discountPrice: number;
+  price: string;
+  discountPrice: string;
   goodsImg: string;
 
   [propName: string]: any;

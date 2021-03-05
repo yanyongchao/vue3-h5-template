@@ -1,16 +1,29 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition name="slide">
+    <template v-if="pageAnimation">
+      <transition name="slide">
+        <component class="fs-child" :is="Component" />
+      </transition>
+    </template>
+    <template v-else>
       <component class="fs-child" :is="Component" />
-    </transition>
+    </template>
   </router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import LocalConfig from '@/config.json'
 
 export default defineComponent({
-  name: 'FsChild'
+  name: 'FsChild',
+  setup () {
+    const pageAnimation = ref<boolean>(LocalConfig.PageAnimation)
+
+    return {
+      pageAnimation
+    }
+  }
 })
 </script>
 

@@ -12,6 +12,7 @@ import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import { IStore } from '@/typings/store'
 import { PageStack, PAGE_STACK_CONFIG } from '@/plugins/vuePageStack'
+import LocalConfig from '@/config.json'
 
 export default defineComponent({
   name: 'App',
@@ -28,6 +29,7 @@ export default defineComponent({
     const transitionName = ref('slide-normal')
     const pageStack = inject('pageStack') as PageStack
     watch(route, (newRoute) => {
+      if (!LocalConfig.PageAnimation) return
       const routerDir = newRoute.params.routerDir as string
       if (pageStack.getStack().length <= 1 && routerDir === PAGE_STACK_CONFIG.forwardName) {
         transitionName.value = 'slide-normal'

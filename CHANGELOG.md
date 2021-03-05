@@ -1,4 +1,4 @@
-# 0.1.0 (2021-03-04)
+# 0.1.0 (2021-03-05)
 
 ### 🌟 新功能
 范围|描述|commitId
@@ -30,6 +30,7 @@
  - | 修改package.json | [94e58c5](https://github.com/yanyongchao/vue3-h5-template/commit/94e58c5)
  - | 优化代码 | [6fd87b4](https://github.com/yanyongchao/vue3-h5-template/commit/6fd87b4)
  - | typings | [a75b0b0](https://github.com/yanyongchao/vue3-h5-template/commit/a75b0b0)
+ - | useApi优化 | [840820d](https://github.com/yanyongchao/vue3-h5-template/commit/840820d)
 
 
 范围|描述|commitId

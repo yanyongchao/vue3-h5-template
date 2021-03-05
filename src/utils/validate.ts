@@ -1,7 +1,7 @@
 import Schema from 'async-validator'
 import { isString, isArray } from 'lodash'
 
-import { IValidateRules, IValidateError } from '@/typings/validate'
+import { ValidateRules, ValidateError } from '@/typings/validate'
 
 class ValidatorUtils {
   private data: AnyObject;
@@ -18,7 +18,7 @@ class ValidatorUtils {
    * @param rules async-validator 的校验规则
    * @param cover 是否替换旧规则
    */
-  public setRules (rules: IValidateRules, cover: boolean) {
+  public setRules (rules: ValidateRules, cover: boolean) {
     if (cover) {
       this.validators = {}
     }
@@ -30,9 +30,9 @@ class ValidatorUtils {
 
   public validate (
     dataKey?: string | string[]
-  ): Promise<IValidateError[] | string | string[] | undefined> {
+  ): Promise<ValidateError[] | string | string[] | undefined> {
     // 错误数组
-    const err: IValidateError[] = []
+    const err: ValidateError[] = []
 
     Object.keys(this.validators)
       .filter((key) => {
@@ -47,7 +47,7 @@ class ValidatorUtils {
       .forEach((key) => {
         this.validators[key].validate(
           { [key]: this.data[key] },
-          (error: IValidateError[]) => {
+          (error: ValidateError[]) => {
             if (error) {
               err.push(error[0])
             }

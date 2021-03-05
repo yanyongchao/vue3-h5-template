@@ -1,4 +1,5 @@
 import { GoodsService } from '@/core/requests/goods'
+import Goods from './entities'
 
 class GoodsInteractor {
   private static _instance: GoodsInteractor
@@ -11,7 +12,8 @@ class GoodsInteractor {
   }
 
   async getGoodsList () {
-    return await GoodsService.getGoodsList()
+    const list = await GoodsService.getGoodsList()
+    return list.map(item => new Goods(item))
   }
 }
 

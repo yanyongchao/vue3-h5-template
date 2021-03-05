@@ -23,6 +23,7 @@ declare global {
     [propName: string]: any;
   }
   interface Window {
-    $bridge: any;
+    WVJBCallbacks: any;
+    WebViewJavascriptBridge: any;
   }
 };

@@ -2,5 +2,6 @@
   "MockEnabled": true,
   "AxiosBaseUrl": "/api",
   "AxiosTimeout": 10000,
-  "RequestGateway": "/gateway"
+  "RequestGateway": "/gateway",
+  "PageAnimation": true
 }

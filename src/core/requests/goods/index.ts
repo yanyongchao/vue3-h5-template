@@ -1,5 +1,6 @@
 import { http } from '@/core/services'
 import { IGoods } from '@/typings/goods'
+import { goodsTranslator } from './translators'
 
 export class GoodsService {
   public static async getGoodsList (): Promise<IGoods[]> {
@@ -8,6 +9,6 @@ export class GoodsService {
       url: '/goods',
       data: {}
     })
-    return list
+    return goodsTranslator(list)
   }
 }
