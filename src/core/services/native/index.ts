@@ -6,8 +6,17 @@ export interface INativeService {
 }
 
 class NativeService implements INativeService {
+  public static instance: NativeService
+
   public isAndroid: boolean;
   public isIOS: boolean;
+
+  public static getInstance (): NativeService {
+    if (!this.instance) {
+      this.instance = new NativeService()
+    }
+    return this.instance
+  }
 
   constructor () {
     const ua = navigator.userAgent.toLowerCase()
@@ -21,4 +30,4 @@ class NativeService implements INativeService {
   }
 }
 
-export default NativeService
+export default NativeService.getInstance()
