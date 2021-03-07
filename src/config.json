@@ -3,5 +3,6 @@
   "AxiosBaseUrl": "/api",
   "AxiosTimeout": 10000,
   "RequestGateway": "/gateway",
-  "PageAnimation": true
+  "PageAnimation": true,
+  "LoggerUrl": "https://event-upload.51fubei.com/common/event/synEvent/json"
 }

@@ -7,9 +7,9 @@ export interface RequestOptions<R = any, P extends any[] = any[]>{
 }
 
 const defaultOptions = {
-  manual: false,
+  manual: false, // 是否需要手动调用 run 触发执行
   params: [] as any[],
-  initialData: undefined
+  initialData: undefined // 初始化数据
 }
 
 export function useApi<R = any, P extends any[] = any[]> (

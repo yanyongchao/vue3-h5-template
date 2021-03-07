@@ -7,7 +7,7 @@ interface PageStack {
   getStack: () => Array<StackRecord>;
 }
 
-const VuePageStackPlugin = {
+const vuePageStackPlugin = {
   install (app: App, options: { router: Router }) {
     const router = options.router
     if (!router) {
@@ -26,4 +26,4 @@ export {
   PAGE_STACK_CONFIG
 }
 
-export default VuePageStackPlugin
+export default vuePageStackPlugin

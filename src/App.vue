@@ -28,15 +28,16 @@ export default defineComponent({
     const route = useRoute()
     const transitionName = ref('slide-normal')
     const pageStack = inject('pageStack') as PageStack
-    watch(route, (newRoute) => {
-      if (!LocalConfig.PageAnimation) return
-      const routerDir = newRoute.params.routerDir as string
-      if (pageStack.getStack().length <= 1 && routerDir === PAGE_STACK_CONFIG.forwardName) {
-        transitionName.value = 'slide-normal'
-        return
-      }
-      transitionName.value = 'slide-' + routerDir
-    })
+    if (LocalConfig.PageAnimation) {
+      watch(route, (newRoute) => {
+        const routerDir = newRoute.params.routerDir as string
+        if (pageStack.getStack().length <= 1 && routerDir === PAGE_STACK_CONFIG.forwardName) {
+          transitionName.value = 'slide-normal'
+          return
+        }
+        transitionName.value = 'slide-' + routerDir
+      })
+    }
     return {
       transitionName
     }

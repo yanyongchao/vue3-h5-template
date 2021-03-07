@@ -1,4 +1,4 @@
-# 0.1.0 (2021-03-05)
+# 0.1.0 (2021-03-07)
 
 ### 🌟 新功能
 范围|描述|commitId
@@ -15,6 +15,7 @@
  - | first commit | [6db44f4](https://github.com/yanyongchao/vue3-h5-template/commit/6db44f4)
  - | jsBridge | [6fa9493](https://github.com/yanyongchao/vue3-h5-template/commit/6fa9493)
  - | layout | [20f9019](https://github.com/yanyongchao/vue3-h5-template/commit/20f9019)
+ - | native | [b8022b4](https://github.com/yanyongchao/vue3-h5-template/commit/b8022b4)
  - | useApi | [577b7aa](https://github.com/yanyongchao/vue3-h5-template/commit/577b7aa)
  - | vuepagestack | [fa7b0f7](https://github.com/yanyongchao/vue3-h5-template/commit/fa7b0f7)
 
